@@ -3,11 +3,6 @@ console.log('hello');
 chrome.runtime.onInstalled.addListener(() => {
   console.log('on install');
   chrome.identity.getAuthToken({ interactive: true }, function (accessToken) {
-    if (chrome.runtime.lastError) {
-      console.error(chrome.runtime.lastError);
-      return;
-      // Handle error
-    }
     fetch('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + accessToken)
       .then(response => response.json())
       .then(data => {
