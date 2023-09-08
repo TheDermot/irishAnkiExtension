@@ -3,12 +3,7 @@
   "description": "Add highlighted Irish words and their translation to Anki decks. ",
   "version": "1.0.0",
   "manifest_version": 3,
-  "icons": {
-    "16": "img/IrishAnki16.png",
-    "32": "img/IrishAnki32.png",
-    "48": "img/IrishAnki48.png",
-    "128": "img/IrishAnki128.png"
-  },
+  "icons": { "128": "img/IrishAnkiExtension.png" },
   "permissions": [
     "activeTab",
     "runtime",
@@ -48,11 +43,6 @@
     }
   ],
   "action": {
-    "default_icon": {
-      "16": "img/IrishAnki16.png",
-      "32": "img/IrishAnki32.png",
-      "48": "img/IrishAnki48.png"
-    },
     "default_popup": "popup.html"
   },
   "background": {
