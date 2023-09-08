@@ -1,0 +1,67 @@
+{
+  "name": "Irish Anki Extension",
+  "description": "Add highlighted Irish words and their translation to Anki decks. ",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "img/IrishAnki16.png",
+    "32": "img/IrishAnki32.png",
+    "48": "img/IrishAnki48.png",
+    "128": "img/IrishAnki128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "runtime",
+    "clipboardRead",
+    "clipboardWrite",
+    "storage",
+    "tabs",
+    "webRequest",
+    "declarativeNetRequest",
+    "identity",
+    "identity.email",
+    "scripting",
+    "https://www.googleapis.com/*",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/userinfo.profile"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "modify_request",
+        "enabled": true,
+        "path": "modify_request.json"
+      }
+    ]
+  },
+  "oauth2": {
+    "client_id": "498912417970-e8boradbhbtsskeqd4h8t3p48fabpk56.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/userinfo.email", "openid", "https://www.googleapis.com/auth/userinfo.profile"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": false,
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "img/IrishAnki16.png",
+      "32": "img/IrishAnki32.png",
+      "48": "img/IrishAnki48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["jquery-3.6.0.min.js", "cab.js", "modify_request.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

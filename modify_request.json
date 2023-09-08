@@ -1,0 +1,20 @@
+[
+  {
+    "id": 10,
+    "priority": 10,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Placeholder-Header",
+          "operation": "set",
+          "value": "Placeholder-Value"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "https://example.com/*",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
