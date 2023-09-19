@@ -53,5 +53,6 @@
       "resources": ["jquery-3.6.0.min.js", "cab.js", "modify_request.json"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3rcBuRchfumb2nZRXbwZ2CXLnlW4uqBcc2qB66oTWZxAZR8ekGar/sbeQcCm3MFA3PAe8TKZ27g5IeT3wfqIHolGOOL6RqPXnpNDa3cMedSi2u5T0FOD8IweqCGl715FkCjVbp2CdlY4Z26njvQ9aYuGLv84ykQeb8GtH8EEDVtmJ7LATTAnXGUlfQnIvc4w+pfwtzh3GyZlTZhY8iD0Cwoi4ooDBVh4kkqQPkRwDXJlhldG0W3wEjdQtkEmtXT2+xHqarnJbl04YRfMcaDQAc2dMKNhF+dLU8EaLhDHKCZEAv9/6LiLpZWJs3sxxBZOm+Avn6WEM1PHqoBorpw31QIDAQAB"
 }
