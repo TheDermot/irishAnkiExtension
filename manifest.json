@@ -6,7 +6,6 @@
   "icons": { "128": "img/IrishAnkiExtension.png" },
   "permissions": [
     "activeTab",
-    "runtime",
     "clipboardRead",
     "clipboardWrite",
     "storage",
@@ -15,10 +14,7 @@
     "declarativeNetRequest",
     "identity",
     "identity.email",
-    "scripting",
-    "https://www.googleapis.com/*",
-    "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/userinfo.profile"
+    "scripting"
   ],
   "host_permissions": ["<all_urls>"],
   "declarative_net_request": {
