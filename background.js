@@ -1,43 +1,40 @@
 console.log('hello');
 
-chrome.runtime.onInstalled.addListener(() => {
-  console.log('on install');
-  chrome.identity.getAuthToken({ interactive: true }, function (accessToken) {
-    fetch('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + accessToken)
-      .then(response => response.json())
-      .then(data => {
-        var googleID = data.id;
-        console.log('googleIDIDDDDDDDDD', data.id);
-        chrome.declarativeNetRequest.updateDynamicRules({
-          removeRuleIds: [1, 10],
-          addRules: [
-            {
-              id: 1,
-              priority: 1,
-              action: {
-                type: 'modifyHeaders',
-                requestHeaders: [
-                  {
-                    header: 'googleId',
-                    operation: 'set',
-                    value: googleID,
-                  },
-                ],
-              },
-              condition: {
-                urlFilter: 'https://irish-anki.onrender.com/words',
-                resourceTypes: ['main_frame', 'xmlhttprequest'],
-                requestMethods: ['post'],
-              },
+chrome.identity.getAuthToken({ interactive: true }, function (accessToken) {
+  fetch('https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + accessToken)
+    .then(response => response.json())
+    .then(data => {
+      var googleID = data.id;
+      console.log('googleIDIDDDDDDDDD', data.id);
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [1, 10],
+        addRules: [
+          {
+            id: 1,
+            priority: 1,
+            action: {
+              type: 'modifyHeaders',
+              requestHeaders: [
+                {
+                  header: 'googleId',
+                  operation: 'set',
+                  value: googleID,
+                },
+              ],
             },
-          ],
-        });
-      })
-      .catch(function (error) {
-        console.error(error);
+            condition: {
+              urlFilter: 'https://irish-anki.onrender.com/words',
+              resourceTypes: ['main_frame', 'xmlhttprequest'],
+              requestMethods: ['post'],
+            },
+          },
+        ],
       });
-    console.log(accessToken);
-  });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  console.log(accessToken);
 });
 
 let scriptExecuted = false;
